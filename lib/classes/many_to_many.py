@@ -12,7 +12,7 @@ class Author:
 
     @property
     def name(self):
-            return self._name
+         return self._name
 
     
     def articles(self):
@@ -29,6 +29,10 @@ class Author:
 
 class Magazine:
     def __init__(self, name, category):
+        if not isinstance(name, str) or not (2 <= len(name) <= 16):
+            raise TypeError("Magazine name must be a string between 2 and 16 characters long")
+        if not isinstance(category, str) or len(category) == 0:
+            raise TypeError("Magazine category must be a string and not empty")
         self.name = name
         self.category = category
 
